@@ -1,0 +1,48 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class CitiesMap {
+
+	private static Map<Character, Set<String>> mapCities = new HashMap<Character, Set<String>>();
+
+	private static List<String> cities = new ArrayList<String>();
+
+	public CitiesMap() {
+
+	}
+
+	public Map<Character, Set<String>> getcities() {
+		return this.mapCities;
+	}
+
+	public List<String> getMapCities(){
+		return this.cities;
+	}
+
+	public List<String> initCities(File file) {
+
+		try (BufferedReader in = new BufferedReader(new FileReader(file))) {
+			for (String city; (city = in.readLine()) != null;) {
+				cities.add(city); 
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		return cities;
+	}
+
+	private static Character getFirstChar(String city) {
+		return city.charAt(0);
+	}
+
+}
