@@ -13,25 +13,25 @@ public class CitiesMap {
 
 	private static Map<Character, Set<String>> mapCities = new HashMap<Character, Set<String>>();
 
-	private static List<String> cities = new ArrayList<String>();
+	private static Set<String> cities = new HashSet<String>();
 
 	public CitiesMap() {
 
 	}
 
-	public Map<Character, Set<String>> getcities() {
+	public Map<Character, Set<String>> getCities() {
 		return this.mapCities;
 	}
 
-	public List<String> getMapCities(){
+	public Set<String> getMapCities() {
 		return this.cities;
 	}
 
-	public List<String> initCities(File file) {
+	public Set<String> initCities(File file) {
 
 		try (BufferedReader in = new BufferedReader(new FileReader(file))) {
 			for (String city; (city = in.readLine()) != null;) {
-				cities.add(city); 
+				cities.add(city);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -41,8 +41,27 @@ public class CitiesMap {
 		return cities;
 	}
 
-	private static Character getFirstChar(String city) {
+	public static Character getFirstChar(String city) {
 		return city.charAt(0);
 	}
+
+	public static Character getLastChar(String city) {
+		int pos = city.length() - 1;
+		char lastChar = city.toUpperCase().charAt(pos);
+
+		return lastChar;
+	}
+
+	public Map<Character, Set<String>> createMap(Set<String> cities) {
+		Map<Character, Set<String>> map = new HashMap<Character, Set<String>>();
+		for (String city : cities) {
+			Set<String> cs = map.get(getFirstChar(city));
+			if (cs == null)
+				map.put(getFirstChar(city), cs = new HashSet<String>());
+			cs.add(city);
+		}
+		return map;
+	}
+
 
 }
