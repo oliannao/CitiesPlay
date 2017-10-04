@@ -1,1 +1,2 @@
 # CitiesPlay
+Сonsole application
