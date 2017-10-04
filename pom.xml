@@ -43,7 +43,7 @@
 				</executions>
 				<configuration>
 					<executable>java</executable>
-					<mainClass></mainClass>
+					<mainClass>main.java.Main</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
