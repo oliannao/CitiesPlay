@@ -43,7 +43,7 @@
 				</executions>
 				<configuration>
 					<executable>java</executable>
-					<mainClass>by.htp.seleniumtask.HelloMain</mainClass>
+					<mainClass></mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
