@@ -19,11 +19,11 @@ public class CitiesMap {
 
 	}
 
-	public Map<Character, Set<String>> getCities() {
+	public Map<Character, Set<String>> getMapCities() {
 		return this.mapCities;
 	}
 
-	public Set<String> getMapCities() {
+	public Set<String> getCities() {
 		return this.cities;
 	}
 
@@ -62,6 +62,4 @@ public class CitiesMap {
 		}
 		return map;
 	}
-
-
 }
