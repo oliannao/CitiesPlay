@@ -22,6 +22,7 @@ public class Main {
 		 * }
 		 */
 		Game game = new Game();
-		game.dogame(hm);
+		game.setCitiesMap(citiesMap);
+		game.dogame();
 	}
 }
